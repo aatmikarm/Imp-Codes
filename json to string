@@ -1,0 +1,21 @@
+  private void getAdId() {
+        String url = "https://khushboo.codezeek.com/ads/ads.php";
+        RequestQueue queue = Volley.newRequestQueue(ctx);
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                try {
+                    String native_ad = response.getString("native_ad");
+                    Toast.makeText(ctx, native_ad, Toast.LENGTH_SHORT).show();
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(ctx, "Fail to get data..", Toast.LENGTH_SHORT).show();
+            }
+        });
+        queue.add(jsonObjectRequest);
+    }
