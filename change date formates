@@ -1,0 +1,7 @@
+ val parser = SimpleDateFormat("dd/MM/yyyy HH:mm:ss a")
+                                val formatter = SimpleDateFormat("HH:mm a")
+                                val startDateFormat = formatter.format(parser.parse(startDate))
+                                val endDateFormat = formatter.format(parser.parse(endDate))
+
+                                val dateformatter = SimpleDateFormat("dd MMM, yy")
+                                val dateFormat = dateformatter.format(parser.parse(startDate))
